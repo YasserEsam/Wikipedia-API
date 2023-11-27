@@ -1,0 +1,105 @@
+the life cycle of the component in the react has three states: (this is in the class design) not in the (hooks)
+
+Mounting : (componentDidMount) connecting to a database or API
+ 
+Updating : (componentDidUpdate) updateing the value and change anything in the page ( this Mounting and Updating works after the render)
+
+Unmounting : (componentWillUnmount) diconnect the connection to the database of API 
+
+
+Then the useEffect came and solve thie problem, now you can conect, update and disconect using useEffect 
+
+
+---------------
+
+we first import it and then we wirte like the following 
+
+useEffect(()=> {//here you write your code like an API conntecion} , [dependency array]);
+
+----------------
+
+
+// This is a useEffect with an empty dependency array 
+// run one time only after first render
+useEffect(()=>{
+
+console.log("Use Effet one time")
+
+},[])
+
+
+
+
+cause the dependeny array is empty,
+
+---------------------
+
+
+
+
+ This is a useEffect with dependency array is not empty 
+
+useEffect(() =>{
+  if(name){
+    console.log("name has changed !");
+  }
+}, [name]);
+
+call the useeffect, when any change happend to the name varible 
+This is why they call it dependecy array
+
+and we use the if condition to avoid running the code after the rendring
+and we run it if anychange happend to the name varible only
+
+
+
+ ----------------
+
+ useEffect without dependence curlybrascec , will run everytime something change
+
+useEffect(()=>{
+  console.log("effect")
+})
+
+
+
+
+--------------------
+how to unMount or clean up the useEffect Memory space 
+
+useEffect(()=>{
+if(name){
+ const start= setTimeout(() => {
+    console.log("Two Secondes")
+  }, 2000);
+  return() => {
+    clearTimeout(start)
+  }
+
+}
+},[name])
+
+
+
+
+
+
+
+
+
+-------------------------------
+
+So we use useeffect to add APIs to your website, but be carefull of (XSS) which referes to (Cross Site Scripting) attacks inside the HTML tags
+
+
+---------
+
+zustand
+prime react
+uno css -  tailwind ( one day) 
+react hook form
+linguijs ( ar - en)
+
+
+totaltypescript - typescript 
+
